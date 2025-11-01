@@ -37,7 +37,7 @@ My favorite breakfast, BHB(Beignet-Haricot-Bouillie), as for many cameroonians, 
 
 During its research to standardize yield gap assessment, agriculture scientist Martin Van Ittersum found many reasons for the yields gap in sub-saharan africa as : Water & nutrients factor(limiting factor) , weeds , polluants, pests and diseases(reducing factor) ( [Van Ittersum et al,2016](https://doi.org/10.1073/pnas.1610359113)). 
 
-Well resolved, the abovementioned issues can significantly reduce food instabilitiy in Cameroon in particular, and, in the sub-saharan region in general. 
+Well addressing the abovementioned issues can reduce the yield gap, thus increasing the food output of smallholder famrs and contribute to shrink food instabilitiy in Cameroon in particular, and, in the sub-saharan region in general. 
 
 This project addresses the challenge of leveraging distributed systems and cloud computing technologies to mitigate the pest and diseases factors to reduce yield gap.
 
@@ -84,27 +84,69 @@ The users that are going to interact with our solution are:
 
 The implementation of the solutions is occuring during the `Distributed Systems and Cloud Computing` course and needs to be complete before the end of the semester; leaving with a timeframe of approximately `3 months` of execution. 
 
-The solution will be deployed using `on premises` cloud computing resources, in our case, it will be deployed on a `VPS`(Virtual Private Server).
+The solution will be deployed using `on premises` cloud computing resources, in our case, it will be deployed on 3 `VPS`(Virtual Private Server).
 
 Given this solution will be `distributed systems and cloud computing ` oriented, the `computing intensive` aspect of the project should be emphasized. 
 
 
 #### Technical Constraints 🔩 
 
-A `distributed system` orientation, means the solution should be `Scalable`, `Fault Tolerant` and allow `Collaboration`. The details on this aspect of the system is going to be further discussed in the `Solution Proposal` Section. 
+A `distributed system` orientation, means the solution should be `Scalable`, `Fault Tolerant` and allow `Collaboration`. The details on those aspects of the system are going to be further discussed in the `Solution Proposal` Section. 
 
 The system should allow real-time implementation and concurrent executions. 
 The system is also going to manage `geospatial` informations and manage an `interactive map`.
 
-The map navigation should be fluid for a pleasant user experience. 
+The map navigation should have the lowest latency possible for a pleasant user experience. 
 
-Moreover, the communication between some services will involve the use of `message broker`.
+Moreover,in order to make the system more reliable,  the communication between some services will be `asynchronous`, thus involving the use of `message broker`.
 
 
 
 ## Solution Proposal 🚀  
 
+`FarmSentinel` is a cloud-based web application, that is going to aggregate the farmers's data, data about their farms(geoposition, area, crops variety, yield estimation) and data on pests & diseases outbreaks(Signaling date, type, images, fallouts,etc.). 
 
+Once an outbreak is registered, it will be displayed on the interactive map by a color code -depending on the severity of the outbreak- using the report location, the farmers nearby the report's postion will be notified on the outbreak, thus allowing them to plan large-scale mitigaions measures. 
+
+The interactive map will display the evolution of the outbreaks in real-time  to decision-makers, in order for to make data driven decisions. 
+
+The non-functional requirements of the system are : `scalability`, `performance` and `reliability`. This means, we should make sure that :
+
+- First, the system should be able to perform and operates well as the number of users or requets increases.
+- Second, the system should be able to achieves its timing requirements using the available resources.
+- Finally, the platform must be reliable to notify consistently about outbreaks and display the real-time evolution of outbreaks
+
+
+To address our requirements (`functional & nun-functional`), we will proceed with an hybrid architecture, comprises of  `microservices` architecture and `event-driven` architecture. 
+
+
+After presenting the solution, let's explore the `distributed systems` characteristics of the solution. 
+
+
+### Scalability
+
+Leveraging the microservices architecture will ensure the system is divided into single computation, self-reliant, units (services). 
+
+This configuration will allow to increase services's instances to automatically meets the load, and decrease accordingly to adapt to the load. 
+
+### Fault tolerant
+
+Againg leveraging microservices, we are going to deploy and replicate microservices accross the production environment of 3 VMs. 
+
+The replication of the services on the VMs will ensure the system's ability to achieve its requirements even if a part of the system is down. 
+
+
+### Collaboration 
+
+The platform will allow logged in decision makers to edit the severity of outbreaks. 
+
+
+
+
+## System Design 
+
+
+This section is going to provide an in-depth understanding of the system using diagrams .
 
 
 

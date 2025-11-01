@@ -1,0 +1,1 @@
+The full project description would require more than 5000 words because it includes problem description + problem scope + solutions proposal based on distributed systems + system design + proposal of technologies + calendar of activities
