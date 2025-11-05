@@ -106,9 +106,11 @@ Moreover,in order to make the system more reliable,  the communication between s
 
 `FarmSentinel` is a cloud-based web application, that is going to aggregate the farmers's data, data about their farms(geoposition, area, crops variety, yield estimation) and data on pests & diseases outbreaks(Signaling date, type, images, fallouts,etc.). 
 
-Once an outbreak is registered, it will be displayed on the interactive map by a color code -depending on the severity of the outbreak- using the report location, the farmers nearby the report's postion will be notified on the outbreak, thus allowing them to plan large-scale mitigaions measures. 
+Once an outbreak is registered, it will be displayed on the interactive map by a color code -depending on the severity of the outbreak- using the report location; Nearby farmers are going to be notified about the outbreak, thus allowing them to take respective mitigation measures.
 
 The interactive map will display the evolution of the outbreaks in real-time  to decision-makers, in order for to make data driven decisions. 
+
+While dealing with an outbreak, decision-makers will have to rights to modify the severity level of an ongoing outbreak and mark them done.
 
 The non-functional requirements of the system are : `scalability`, `performance` and `reliability`. This means, we should make sure that :
 
@@ -131,7 +133,7 @@ This configuration will allow to increase services's instances to automatically 
 
 ### Fault tolerant
 
-Againg leveraging microservices, we are going to deploy and replicate microservices accross the production environment of 3 VMs. 
+Againg leveraging microservices, we are going to deploy and replicate microservices accross the production environment of 3 geographically disperse VMs all working in a Virtual Private Cloud network. 
 
 The replication of the services on the VMs will ensure the system's ability to achieve its requirements even if a part of the system is down. 
 
@@ -149,6 +151,16 @@ The platform will allow logged in decision makers to edit the severity of outbre
 This section is going to provide an in-depth understanding of the system using diagrams .
 
 
+
+
+
+
+
+
+
+## Tech stack 
+
+I will proceed with NextJs & Mapbox Gl for frontend, because of the map functionalities of mapbox gl and next for the way it handles components, it is modern. I will go with golang for the backend because it is easier to set concurrency with it and also because it is the language of most of modern distributed systems . For the database, since i am dealing with structured data and i will need to deal with geospatial data, i will go with postgres and postgis . I will use a self hosted minio for object storage and rabbitmq for message queueing 
 
 
 
